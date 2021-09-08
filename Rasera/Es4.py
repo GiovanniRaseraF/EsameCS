@@ -5,13 +5,9 @@ def stampaMatrice(Mat, R, C):
     for riga in range(0, R):
         print("", end="")
         for colonna in range(0, C):
-            print(Mat[riga][colonna]+"  ", end="")
+            val = (Mat[riga][colonna]).replace('\n', '')
+            print(val+"  ", end="")
         print("", end="\n")
-
-"""
-def prodottoG1A(Mat1, Mat2):
-    pass
-"""
 
 # Main:
 def Main():
@@ -70,10 +66,10 @@ Matrice: (y,x)
     print("G1(2,0): \n"+ g1_20, end="");input()
 
     ## 3.2) G1A
-    g1a_11 = ""+G1[1][0]+"*("+A[0][1]+")+"+A[1][1]+""
-    g1a_12 = ""+G1[1][0]+"*("+A[0][2]+")+"+A[1][2]+""
-    g1a_21 = ""+G1[2][0]+"*("+A[0][1]+")+"+A[2][1]+""
-    g1a_22 = ""+G1[2][0]+"*("+A[0][2]+")+"+A[2][2]+""
+    g1a_11 = "("+G1[1][0]+"*("+A[0][1]+")+"+A[1][1]+")"
+    g1a_12 = "("+G1[1][0]+"*("+A[0][2]+")+"+A[1][2]+")"
+    g1a_21 = "("+G1[2][0]+"*("+A[0][1]+")+"+A[2][1]+")"
+    g1a_22 = "("+G1[2][0]+"*("+A[0][2]+")+"+A[2][2]+")"
     G1A = [
         [A[0][0],   A[0][1],        A[0][2]], 
         ["0",       g1a_11,         g1a_12],
@@ -125,5 +121,34 @@ Matrice: (y,x)
     print("L(2,1): \n"+ l_21, end="");input()
     input()
 
-
+    # Menu
+    while(True):
+        print("Menu: ")
+        print("(A a)(G1 g1)(G2 g2)\n(G1A g1a)(G2G1A g2g1a)\n(U u)(L l)\n(Fine f)")
+        stampa = input().lower()
+        if stampa == "a":
+            stampaMatrice(A, RIGHE, COLONNE)
+            input()
+        elif stampa == "g1":
+            stampaMatrice(G1, RIGHE, COLONNE)
+            input()
+        elif stampa == "g2":
+            stampaMatrice(G2, RIGHE, COLONNE)
+            input()
+        elif stampa == "g1a":
+            stampaMatrice(G1A, RIGHE, COLONNE)
+            input()
+        elif stampa == "g2g1a":
+            stampaMatrice(G2G1A, RIGHE, COLONNE)
+            input()
+        elif stampa == "u":
+            stampaMatrice(G2G1A, RIGHE, COLONNE)
+            input()
+        elif stampa == "l":
+            stampaMatrice(L, RIGHE, COLONNE)
+            input()
+        else:
+            break
+    
+    # Pivot Parziale
 Main()
