@@ -65,9 +65,9 @@ Matrice: (y,x)
         [g1_10,     "1",        "0"],
         [g1_20,     "0",        "1"]
     ]
-    print("G1: ")
-    stampaMatrice(G1, RIGHE, COLONNE)
-    input()
+    print("G1: (Interessanti)")
+    print("G1(1,0): \n"+ g1_10, end="");input()
+    print("G1(2,0): \n"+ g1_20, end="");input()
 
     ## 3.2) G1A
     g1a_11 = ""+G1[1][0]+"*("+A[0][1]+")+"+A[1][1]+""
@@ -119,8 +119,10 @@ Matrice: (y,x)
         [l_10,      "1",        "0"],
         [l_20,      l_21,       "1"]
     ]
-    print("L: ")
-    stampaMatrice(L, RIGHE, COLONNE)
+    print("L: (Importanti)")
+    print("L(1,0): \n"+ l_10, end="");input()
+    print("L(1,0): \n"+ l_20, end="");input()
+    print("L(2,1): \n"+ l_21, end="");input()
     input()
 
 
