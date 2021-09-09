@@ -1,0 +1,96 @@
+import math
+from math import sqrt as sqrt
+
+
+
+
+# Main:
+def Main():
+    # Composizione della matrice
+    print(
+    """
+Matrice: (y,x)
+| 0,0 0,1 |
+| 1,0 1,1 | 
+| 2,0 2,1 |
+| 3,0 3,1 |
+    """
+    ,end="")
+    input()
+
+    # 1) Inserimento (X,Y)
+    while(True):
+        riprovare = "s"
+        VUOTO = -100000
+        RIGHE = 4
+        COLONNE = 2
+        Mat = [
+            [VUOTO, VUOTO], 
+            [VUOTO, VUOTO],
+            [VUOTO, VUOTO],
+            [VUOTO, VUOTO]
+        ]
+
+
+        print("-- Inserisci Coordinate --")
+        print("HINT: Puoi inserire anche variabili")
+        for riga in range(0, RIGHE):
+            for colonna in range(0, COLONNE):
+                # Inseriemnto valore per valore
+                Mat[riga][colonna] = eval(input("("+str(riga)+","+str(colonna)+")= "))
+
+
+        x0 = Mat[0][0]
+        x1 = Mat[1][0]
+        x2 = Mat[2][0]
+        x3 = Mat[3][0]
+        y0 = Mat[0][1]
+        y1 = Mat[1][1]
+        y2 = Mat[2][1]
+        y3 = Mat[3][1]
+
+        
+        try:
+            V1 = (y0 - y1)/(x0 - x1)
+        except:
+            V1 = 0
+        
+        try:
+            V2 = (y1 - y2)/(x1 - x2)
+        except:
+            V2 = 0
+        
+        try:
+            V3 = (y2 - y3)/(x2 - x3)
+        except:
+            V3 = 0
+
+        try:
+            V10 = (V1 - V2)/(x0 - x2)
+        except:
+            V10 = 0
+
+        try:
+            V20 = (V2 - V3)/(x1 - x3)
+        except:
+            V20 = 0
+
+        try:
+            V100 = (V10 - V20)/(x0 - x3)
+        except:
+            V100 = 0
+        
+        
+
+
+        print("-------------------")
+        print(V1)
+        print("     " + str(V10))
+        print(str(V2) + "        " + str(V100)) 
+        print("     " + str(V20))
+        print(V3)
+        print("-------------------")
+
+
+
+Main()
