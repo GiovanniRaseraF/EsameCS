@@ -1,7 +1,7 @@
 import math
 from math import sqrt as sqrt
 
-def MultiplyAndPrintMatrix(A, B):
+def MultiplyAndPrintAndGetMatrix(A, B):
 
     R_A = len(A); C_A = len(A[0])
     R_B = len(B); C_B = len(B[0])
@@ -28,6 +28,8 @@ def MultiplyAndPrintMatrix(A, B):
         for j in range(0,C_B):
             print("{:.2f}".format(K[i][j]) + "  ", end="")
         print()
+
+    return K
         
 
 
@@ -161,10 +163,31 @@ Matrice: (y,x)
             
         print("---------")
         print("Mat SX")
-        MultiplyAndPrintMatrix(A,B)
+        Sx = MultiplyAndPrintAndGetMatrix(A,B)
         print("---------")
         print("Mat DX")
-        MultiplyAndPrintMatrix(A,C)
+        Dx = MultiplyAndPrintAndGetMatrix(A,C)
+
+        K = Sx[0][0]; S = Sx[0][1]; D = Dx[0][0]
+        C = Sx[1][0]; N = Sx[1][1]; F = Dx[1][0]
+
+
+        try:
+            a = (S*F - N*D)/(S*C - N*K)
+        except:
+            a = 0
+
+        try:       
+            b = (D - (K * a))/S
+        except:
+            b = 0
+
+
+        print("-------------")
+        print("a: " + str(a))
+        print("b: " + str(b))
+        print()
+
 
 
         break
