@@ -9,6 +9,37 @@ def stampaMatrice(Mat, R, C):
             print(val+"  ", end="")
         print("", end="\n")
 
+def stampaMatriceInt(Mat, R, C):
+    for riga in range(0, R):
+        print("", end="")
+        for colonna in range(0, C):
+            val = "{:.2f}".format(Mat[riga][colonna])
+            print(val+"  ", end="")
+        print("", end="\n")
+
+def trovaMatricediPermutazioneP1(A_PA):
+    maxVal = max([abs(A_PA[0][0]), abs(A_PA[1][0]), abs(A_PA[2][0]),])
+    P1A = []
+
+    if maxVal == abs(A_PA[0][0]):
+        P1 =  [[1,0,0],[0,1,0],[0,0,1]]
+        P1A = A_PA
+    elif maxVal == abs(A_PA[1][0]):
+        P1 =  [[0,1,0],[1,0,0],[0,0,1]]
+        P1A = []
+        P1A.append(A_PA[1])
+        P1A.append(A_PA[0])
+        P1A.append(A_PA[2])
+    else:
+        P1 =  [[0,0,1],[0,1,0],[1,0,0]]
+        P1A = []
+        P1A.append(A_PA[2])
+        P1A.append(A_PA[1])
+        P1A.append(A_PA[0])
+
+    return P1, P1A       
+
+
 # Main:
 def Main():
     # Composizione della matrice
@@ -150,5 +181,55 @@ Matrice: (y,x)
         else:
             break
     
-    # Pivot Parziale
+    # 4) Pivot Parziale
+    print("Pivot Parziale:\nUsa Grafici Calcolatrice")
+
+    # 5) PA = LU
+    ## 5.1) Inserimento di a e b
+    a = int(input("Valore di a: "))
+    b = 0
+    b = (input("Valore di b: (0 se non presente)"))
+    if b == "":
+        b = 0
+
+    ## 5.2) Calocolo di A_PA
+    A_PA = [
+        [VUOTO, VUOTO, VUOTO], 
+        [VUOTO, VUOTO, VUOTO],
+        [VUOTO, VUOTO, VUOTO]
+    ]
+    for riga in range(0, RIGHE):
+        for colonna in range(0, COLONNE):
+            # Inseriemnto valore per valore
+            A_PA[riga][colonna] = eval(A[riga][colonna])
+
+    print("A_PA: ")
+    stampaMatriceInt(A_PA, RIGHE, COLONNE)
+    input()
+
+    ## 5.3) Trova P1
+    P1, P1A = trovaMatricediPermutazioneP1(A_PA)
+
+    print("P1: ")
+    stampaMatriceInt(P1, RIGHE, COLONNE)
+    input()
+    print("P1A: ")
+    stampaMatriceInt(P1A, RIGHE, COLONNE)
+    input()
+
+    ## 5.4) Trova G1
+    pivot = A_PA[0][0]
+    g1_10 = A_PA[1][0] / pivot
+    g1_20 = A_PA[2][0] / pivot
+    G1 = [
+        [1,0,0],
+        [g1_10,1,0],
+        [g1_20,0,1]
+    ]
+    print("G1: ")
+    stampaMatriceInt(G1, RIGHE, COLONNE)
+    input()
+
+
+
 Main()
