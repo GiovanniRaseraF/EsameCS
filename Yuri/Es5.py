@@ -58,7 +58,7 @@ Matrice: (y,x)
             [VUOTO, VUOTO]
         ]
 
-        """
+        
         print("-- Inserisci Coordinate --")
         print("HINT: Puoi inserire anche variabili")
         for riga in range(0, RIGHE):
@@ -85,7 +85,7 @@ Matrice: (y,x)
         y1 = 0
         y2 = 1
         y3 = 2
-        
+        """
         
         try:
             V1 = (y0 - y1)/(x0 - x1)
