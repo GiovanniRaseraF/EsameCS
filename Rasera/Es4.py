@@ -277,5 +277,27 @@ Matrice: (y,x)
     stampaMatriceInt(P2G1P1A, RIGHE, COLONNE)
     input()
 
+    ## 5.8) Trova G2
+    pivot = P2G1P1A[1][1]
+    g2_21 = -P2G1P1A[1][0] / pivot
+    G2 = [
+        [1,0,0],
+        [0,1,0],
+        [0,g2_21,1]
+    ]
+    print("G2: ")
+    stampaMatriceInt(G2, RIGHE, COLONNE)
+    input()
+
+    ## 5.9) Trova G2P2G1P1A
+    G2P2G1P1A = multiplyMatrix(G2, P2G1P1A)
+    print("G2P2G1P1A: ")
+    stampaMatriceInt(G2P2G1P1A, RIGHE, COLONNE)
+    input()
+
+    ## 5.10) Trova L
+
+
+
 
 Main()
