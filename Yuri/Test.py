@@ -31,7 +31,7 @@ Matrice: (y,x)
             [VUOTO, VUOTO]
         ]
 
-
+        """
         print("-- Inserisci Coordinate --")
         print("HINT: Puoi inserire anche variabili")
         for riga in range(0, RIGHE):
@@ -39,7 +39,7 @@ Matrice: (y,x)
                 # Inseriemnto valore per valore
                 Mat[riga][colonna] = eval(input("("+str(riga)+","+str(colonna)+")= "))
 
-
+        
         x0 = Mat[0][0]
         x1 = Mat[1][0]
         x2 = Mat[2][0]
@@ -48,6 +48,16 @@ Matrice: (y,x)
         y1 = Mat[1][1]
         y2 = Mat[2][1]
         y3 = Mat[3][1]
+        """
+
+        x0 = -1
+        x1 = 0
+        x2 = 1
+        x3 = sqrt(3)
+        y0 = 1
+        y1 = 0
+        y2 = 1
+        y3 = 2
 
         
         try:
@@ -90,6 +100,25 @@ Matrice: (y,x)
         print("     " + str(V20))
         print(V3)
         print("-------------------")
+
+
+
+        print("p(x):")
+        print(str(y0) + " + (x-" + str(x0) + ") * " + str(V1) + " + ")
+        print(" + (x-" + str(x0) + ") * (x-" + str(x1) + ") * " + str(V10))
+        print("---------------------")
+
+        
+        print("p(x) completo:")
+        print(str(y0) + " + (x-" + str(x0) + ") * " + str(V1) + " + ")
+        print(" + (x-" + str(x0) + ") * (x-" + str(x1) + ") * " + str(V10))
+        print(" + (x-" + str(x0) + ") * (x-" + str(x1) + ") * " + "(x-" + str(x2) + ") * " + str(V100))
+        print("---------------------")
+
+
+        input()
+
+
 
 
 
