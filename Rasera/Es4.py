@@ -1,6 +1,24 @@
 # Esercizio 4
 import math
 # Utils:
+def multiplyMatrix(A, B):
+    R_A = len(A); C_A = len(A[0])
+    R_B = len(B); C_B = len(B[0])
+    K = []
+      
+    for i in range(0,R_A):
+        K_row = []
+        for j in range(0,C_B):
+            K_row.append(0)
+        K.append(K_row)
+
+    for i in range(len(A)):
+        for j in range(len(B[0])):
+            for k in range(len(B)):
+                K[i][j] += A[i][k] * B[k][j]
+    
+    return K
+
 def stampaMatrice(Mat, R, C):
     for riga in range(0, R):
         print("", end="")
@@ -37,7 +55,18 @@ def trovaMatricediPermutazioneP1(A_PA):
         P1A.append(A_PA[1])
         P1A.append(A_PA[0])
 
-    return P1, P1A       
+    return P1, P1A  
+
+def trovaMatricediPermutazioneP2(G1P1A):
+    maxVal = max([abs(G1P1A[1][1]), abs(G1P1A[2][1])])
+    P2 = []
+
+    if maxVal == abs(G1P1A[1][1]):
+        P2 = [[1,0,0],[0,1,0],[0,0,1]]
+    else:
+        P2 = [[1,0,0],[0,0,1],[0,1,0]]
+    
+    return P2
 
 
 # Main:
@@ -188,7 +217,7 @@ Matrice: (y,x)
     ## 5.1) Inserimento di a e b
     a = int(input("Valore di a: "))
     b = 0
-    b = (input("Valore di b: (0 se non presente)"))
+    b = (input("Valore di b: "))
     if b == "":
         b = 0
 
@@ -218,9 +247,9 @@ Matrice: (y,x)
     input()
 
     ## 5.4) Trova G1
-    pivot = A_PA[0][0]
-    g1_10 = A_PA[1][0] / pivot
-    g1_20 = A_PA[2][0] / pivot
+    pivot = P1A[0][0]
+    g1_10 = -P1A[1][0] / pivot
+    g1_20 = -P1A[2][0] / pivot
     G1 = [
         [1,0,0],
         [g1_10,1,0],
@@ -230,6 +259,23 @@ Matrice: (y,x)
     stampaMatriceInt(G1, RIGHE, COLONNE)
     input()
 
+    ## 5.5) Trova G1P1A
+    G1P1A = multiplyMatrix(G1, P1A)
+    print("G1P1A: ")
+    stampaMatriceInt(G1P1A, RIGHE, COLONNE)
+    input()
+
+    ## 5.6) Trova P2
+    P2 = trovaMatricediPermutazioneP2(G1P1A)
+    print("P2: ")
+    stampaMatriceInt(P2, RIGHE, COLONNE)
+    input()
+
+    ## 5.7) Trova P2G1P1A
+    P2G1P1A = multiplyMatrix(P2, G1P1A)
+    print("P2G1P1A: ")
+    stampaMatriceInt(P2G1P1A, RIGHE, COLONNE)
+    input()
 
 
 Main()
