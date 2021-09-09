@@ -24,8 +24,11 @@ def MultiplyAndPrintMatrix(A, B):
             for k in range(len(B)):
                 K[i][j] += A[i][k] * B[k][j]
     
-    for r in K:
-        print(r)
+    for i in range(0,R_A):
+        for j in range(0,C_B):
+            print("{:.2f}".format(K[i][j]) + "  ", end="")
+        print()
+        
 
 
 # Main:
@@ -55,7 +58,7 @@ Matrice: (y,x)
             [VUOTO, VUOTO]
         ]
 
-        
+        """
         print("-- Inserisci Coordinate --")
         print("HINT: Puoi inserire anche variabili")
         for riga in range(0, RIGHE):
@@ -82,7 +85,7 @@ Matrice: (y,x)
         y1 = 0
         y2 = 1
         y3 = 2
-        """
+        
         
         try:
             V1 = (y0 - y1)/(x0 - x1)
@@ -119,24 +122,24 @@ Matrice: (y,x)
 
         print("-------------------")
         print(V1)
-        print("     " + str(V10))
-        print(str(V2) + "        " + str(V100)) 
-        print("     " + str(V20))
-        print(V3)
+        print("     " + "{:.2f}".format(V10))
+        print("{:.2f}".format(V2) + "        " + "{:.2f}".format(V100)) 
+        print("     " + "{:.2f}".format(V20))
+        print("{:.2f}".format(V3))
         print("-------------------")
 
 
 
         print("p(x):")
-        print(str(y0) + " + (x-" + str(x0) + ") * " + str(V1) + " + ")
-        print(" + (x-" + str(x0) + ") * (x-" + str(x1) + ") * " + str(V10))
+        print("{:.1f}".format(y0) + "+(x-" + "{:.1f}".format(x0) +")*" + "{:.1f}".format(V1) + "+")
+        print("+(x-" + "{:.1f}".format(x0) +")*(x-" + "{:.1f}".format(x1) +")*" + "{:.1f}".format(V10))
         print("---------------------")
 
         
         print("p(x) completo:")
-        print(str(y0) + " + (x-" + str(x0) + ") * " + str(V1) + " + ")
-        print(" + (x-" + str(x0) + ") * (x-" + str(x1) + ") * " + str(V10))
-        print(" + (x-" + str(x0) + ") * (x-" + str(x1) + ") * " + "(x-" + str(x2) + ") * " + str(V100))
+        print("{:.1f}".format(y0) + "+(x-" + "{:.1f}".format(x0) +")*" + "{:.1f}".format(V1) + "+")
+        print("+(x-" + "{:.1f}".format(x0) +")*(x-" + "{:.1f}".format(x1) + ")*" + "{:.1f}".format(V10))
+        print("+(x-" + "{:.1f}".format(x0) +")*(x-" + "{:.1f}".format(x1) + ")*" + "(x-" + "{:.1f}".format(x2) + ")*" + "{:.1f}".format(V100))
         print("---------------------")
 
 
