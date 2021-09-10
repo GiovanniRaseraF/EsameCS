@@ -34,9 +34,9 @@ while(True):
         clausole.append(clausola)
 
 ## Verifica Clausole
-for t in range(1,30):
-    for ema in range(1, 30):
-        for emi in range(1, 30):
+for t in range(1,15):
+    for ema in range(1, 15):
+        for emi in range(1, 15):
             rmi = realmin(emi)
             rma = realmax(t, ema)
             f = F(t, ema, emi)
