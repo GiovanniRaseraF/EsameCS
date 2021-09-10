@@ -216,10 +216,6 @@ Matrice: (y,x)
     # 5) PA = LU
     ## 5.1) Inserimento di a e b
     a = int(input("Valore di a: "))
-    b = 0
-    b = (input("Valore di b: "))
-    if b == "":
-        b = 0
 
     ## 5.2) Calocolo di A_PA
     A_PA = [
@@ -279,7 +275,7 @@ Matrice: (y,x)
 
     ## 5.8) Trova G2
     pivot = P2G1P1A[1][1]
-    g2_21 = -P2G1P1A[1][0] / pivot
+    g2_21 = -P2G1P1A[2][1] / pivot
     G2 = [
         [1,0,0],
         [0,1,0],
@@ -296,6 +292,8 @@ Matrice: (y,x)
     input()
 
     ## 5.10) Trova L
+    G1_i = allameno1(G1)
+    G2_i = allameno1(G2)
 
 
 
