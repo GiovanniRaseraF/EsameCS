@@ -68,6 +68,25 @@ def trovaMatricediPermutazioneP2(G1P1A):
     
     return P2
 
+def allameno1(M):
+    RIGHE = 3
+    COLONNE = 3
+    VUOTO = 0
+    RES = [
+        [VUOTO, VUOTO, VUOTO], 
+        [VUOTO, VUOTO, VUOTO],
+        [VUOTO, VUOTO, VUOTO]
+    ]
+
+    for riga in range(0, RIGHE):
+        for colonna in range(0, COLONNE):
+            # Inseriemnto valore per valore
+            if M[riga][colonna] != 0 and M[riga][colonna] != 1:
+                RES[riga][colonna] = -M[riga][colonna]
+            else:
+                RES[riga][colonna] = M[riga][colonna]
+
+    return RES
 
 # Main:
 def Main():
@@ -295,7 +314,11 @@ Matrice: (y,x)
     G1_i = allameno1(G1)
     G2_i = allameno1(G2)
 
-
+    P2G2_i = multiplyMatrix(P2, G2_i)
+    G1_iP2G2_i = multiplyMatrix(G1_i, P2G2_i)
+    L = multiplyMatrix(P2, G1_iP2G2_i)
+    print("L: ")
+    stampaMatriceInt(L, RIGHE, COLONNE)
 
 
 Main()
