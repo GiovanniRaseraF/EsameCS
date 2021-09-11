@@ -32,9 +32,9 @@ def trasforma(num, t, exponent):
         # Aggiunti un esponente
         if pos == -1: 
             exponent += 1
-            return ""+"1000000000"[0:t], exponent
+            return ""+"1000000000000"[0:t], exponent
         else:
-            num = num[0:pos]+'1000000000'
+            num = num[0:pos]+'100000000000000'
             return ""+num[0:t], exponent
     return "", 0
 
@@ -91,8 +91,8 @@ y_CH = y_str.find(')')
 x_period = x_str[x_AP+1:x_CH]
 y_period = y_str[y_AP+1:y_CH]
 
-x_str = x_str.replace('('+x_period+')', x_period+x_period+x_period)
-y_str = y_str.replace('('+y_period+')', y_period+y_period+y_period)
+x_str = x_str.replace('('+x_period+')', x_period*10)
+y_str = y_str.replace('('+y_period+')', y_period*10)
 
 x_str = x_str[0:t+1]
 y_str = y_str[0:t+1]
