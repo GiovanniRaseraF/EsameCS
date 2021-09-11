@@ -63,48 +63,10 @@ def fromFlto10(num_fl, num_exp, s):
 
 
 # Main
-## Raccogliemento Clausole
-print("Clausole(f -> stop)")
-clausole = []
-while(True):
-    clausola = input(">")
-
-    if clausola == "f":
-        break
-    else:
-        clausole.append(clausola)
-
-t_good = 0; emax_good = 0; emin_good = 0
-## Verifica Clausole
-for t in range(1,15):
-    for ema in range(1, 15):
-        for emi in range(1, 15):
-            rmi = realmin(emi)
-            rma = realmax(t, ema)
-            f = F(t, ema, emi)
-            fz = Fzero(t, ema, emi)
-            fp = Fpos(t, ema, emi)
-            u = U(t)
-            nd = numeridenormalizzati(t)
-
-            check = True
-            # ckeck
-            for cla in clausole:
-                #print("t:{},emax:{},emin:{}".format(t,ema,emi), end="")
-                check = check and eval(cla)
-
-            if check == True:
-                print("t:{}\nemax:{}\nemin:{}".format(t,ema,emi))
-                t_good = t; emax_good = ema; emin_good = emi
-input()
-
 ## Seconda Parte
-#t = int(input("t= "))
-#emax = int(input("Emax= "))
-#emin = int(input("Emin= "))
-t = t_good
-emax = emax_good
-emin = emin_good
+t = int(input("t= "))
+emax = int(input("Emax= "))
+emin = int(input("Emin= "))
 # Inserimento variabili
 print("1.0(10) <-(period)")
 x_str_original = input("x= ")
@@ -149,5 +111,5 @@ y_10 = from2to10(y_str_original, y_period, "y10")
 xt_10 = fromFlto10(x_str, x_exp, "x'10")
 yt_10 = fromFlto10(y_str, y_exp, "y'10")
 
-print("x10: {}\ny10: {}\nx'10: {} | y'10: {}".format(x_10, y_10, xt_10, yt_10))
+print("x10: {}\ny10: {}\nx'10: {}\ny'10: {}".format(x_10, y_10, xt_10, yt_10))
 #print("x_fl: {} x 2^{}".format(x_period, x_exp))
